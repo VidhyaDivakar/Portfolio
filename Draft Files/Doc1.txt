@@ -1,0 +1,9 @@
+This feels really great to install ubuntu in my machine. I would like to check how File diff command works to check difference between two documents. I read in the idratherbewriting.com to find the diffences using the docs to doc methodology then to manually checking for the changes in the refence documents.
+
+As one step closer to this I have installed Ubuntu and the command prompt is up and running. I got my user name and password. It is really great to install everything and see it working fine. I am loving this. Let me see if the file diff can identify the difference in the word doc.
+This is the first document. Let me add few articles
+How to use script for documentation?
+How to speed up writing process?
+How file diff works?
+How Gen AI going to affect technical writers job positions?
+How does Microsoft style guide works?
