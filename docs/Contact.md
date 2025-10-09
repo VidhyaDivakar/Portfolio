@@ -4,15 +4,15 @@ We'd love to hear from you! Please use the information below to get in touch.
 
 ## Email
 
-[Email me @](mailto:vidhyadivkarn@gmail.com)
+[vidhyadivakarn@gmail.com](mailto:vidhyadivkarn@gmail.com)
 
 ## LinkedIn
 
-[My LinkedIn Profile](https://www.linkedin.com/in/vidhya-divakar)
+[https://www.linkedin.com/in/vidhya-divakar](https://www.linkedin.com/in/vidhya-divakar)
 
 ## GitHub
 
-[Your GitHub Username](https://github.com/vidhyadivakar)
+[Vidhya Divakar](https://github.com/vidhyadivakar)
 
 ---
 
