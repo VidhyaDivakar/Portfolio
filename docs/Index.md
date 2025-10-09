@@ -7,12 +7,12 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #1a1818ff;
       text-align: center;
       padding: 50px;
     }
-    h1 { color: #333; }
-    p { color: #666; }
+    h1 { color: #86baddff; }
+    p { color: #c5dcddff; }
   </style>
 </head>
 <body>
