@@ -1,22 +1,32 @@
 **Vendor-Agnostic Service**
 A vendor-agnostic service is a solution that works with multiple technology providers, rather than relying on a single vendor's products or services. This approach offers greater flexibility, avoids vendor lock-in, promotes compatibility across different systems, and allows businesses to access best-of-breed tools, ensuring adaptability, competition, and future readiness in a dynamic market.
 
+---
+
 **Manifest**
 In telemetry, a "manifest" serves as metadata describing the data, often specifying its format, origin, or how it was collected. A Data Manifest provides context for interpreting telemetry data by detailing characteristics like the platform, collection timing, and metering conditions, ensuring the data's reliability and meaning. It is similar to other data and is streamed alongside the telemetry it describes.
+
+---
 
 **Utility in terms of Software**
 
 In software, a utility (or utility software) is a program designed to perform specific, often technical, tasks to help maintain, manage, and optimize a computer system's performance, functionality, or security. Unlike application software which directly serves end-user needs, utility software supports the infrastructure by handling tasks such as file management, virus detection, data backup, and disk repair.
 
-Synapse
+___________________________________________________________________________________
+
+**Synapse**
 
 Synapse is  **the transmission site from the pre-synaptic to the **post-synaptic** neuron** . The structures found on either side of the synapse vary depending on the type of synapse: Axodendritic is a connection formed between the axon of 1 neuron and the dendrite of another. These tend to be excitatory synapses.
 
-Monotonic
+___________________________________________________________________________________
+
+**Monotonic**
 
 In monotonic reasoning,  **once the conclusion is taken, then it will remain the same even if we add some other information to existing information in our knowledge base** . In monotonic reasoning, adding knowledge does not decrease the set of prepositions that can be derived.
 
 Example: Even if the loan risk factor increases, the decision to release of loan money does not changes.
+
+___________________________________________________________________________________
 
 **CSS (Cascading Style Sheets)**
 
@@ -45,6 +55,8 @@ Key Differences:
 
   Plain CSS is sufficient for small, simple projects or when a direct, uncompiled approach is preferred. SCSS is particularly beneficial for larger, more complex projects where its features significantly enhance maintainability, organization, and development efficiency.
 
+___________________________________________________________________________________
+
 **What is the use of .js files?**
 
 A `.js` file is a **JavaScript file** — it stores reusable JavaScript code that runs **in the browser** (client-side) or on a **server** (if using Node.js).
@@ -53,7 +65,9 @@ It’s like the “brain” of your website.
 
 HTML is the “skeleton,” CSS is the “skin,” and JS makes it “move.”
 
-**What is .SVG files**
+___________________________________________________________________________________
+
+**What are .SVG files?**
 
 An .svg file is a Scalable Vector Graphics file. It is an XML-based image format for describing two-dimensional vector graphics, such as icons, logos, diagrams, and illustrations.
 
@@ -75,3 +89,5 @@ Example SVG code:
 ```
 
 This code draws a blue circle in a 100x100 pixel area.
+
+___________________________________________________________________________________
