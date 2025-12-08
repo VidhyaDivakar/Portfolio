@@ -1,0 +1,57 @@
+<!--//this is to test the CTA button styling-->
+Basic Blue CTA Button Test
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CTA Test</title>
+
+    <style>
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 24px;
+            background: linear-gradient(90deg, #269eee, #32c9f7);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="https://github.com/orgs/open-telemetry/projects" class="cta-btn">
+        Review Projects
+    </a>
+    <br><br>
+    Review Button added with basic github styles
+
+    <a href="https://github.com/orgs/open-telemetry/projects">
+        <img src="https://img.shields.io/badge/Review-Projects-4f46e5?style=for-the-badge&logo=github&logoColor=white"
+            alt="Review Projects" />
+    </a>
+    <br><br>
+    Review projects link sample
+
+    <a href="https://github.com/orgs/open-telemetry/projects" class="cta-btn" target="_blank" rel="noopener">
+        Review Projects
+    </a>
+    <br><br>
+    Using a different button option
+
+    <a href="https://github.com/orgs/open-telemetry/projects"
+        style="display:inline-block; padding:12px 20px; background:#3bf0f6; color:white; border-radius:6px; text-decoration:none; font-weight:600;">
+        Review Projects
+    </a>
+
+</body>
+
+</html>
