@@ -1,0 +1,132 @@
+---
+const highlights = [
+	{
+		icon: '✍️',
+		stat: '12+',
+		unit: 'Years',
+		label: 'Technical Documentation',
+		detail: 'N4 · SPARCS · XPS · API Docs · DITA · Docs-as-Code',
+		color: 'green',
+	},
+	{
+		icon: '⚙️',
+		stat: '8',
+		unit: 'Domains',
+		label: 'Skill Categories',
+		detail: 'Writing · API · Tools · Testing · Agile · AI · UX · Dev',
+		color: 'blue',
+	},
+	{
+		icon: '🚀',
+		stat: 'MERN',
+		unit: 'Stack',
+		label: 'Full-Stack Upskilling',
+		detail: 'React · Node.js · Express · MongoDB · TypeScript',
+		color: 'teal',
+	},
+];
+---
+
+<div class="highlights">
+	{
+		highlights.map((h) => (
+			<div class:list={['card', h.color]}>
+				<div class="card-top">
+					<span class="icon">{h.icon}</span>
+					<div class="stat-block">
+						<span class="stat">{h.stat}</span>
+						<span class="unit">{h.unit}</span>
+					</div>
+				</div>
+				<p class="label">{h.label}</p>
+				<p class="detail">{h.detail}</p>
+			</div>
+		))
+	}
+</div>
+
+<style>
+	.highlights {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	@media (min-width: 50em) {
+		.highlights {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.card {
+		position: relative;
+		padding: 1.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--gray-800);
+		background: var(--gray-999);
+		overflow: hidden;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+	}
+
+	.card.green::before { background: linear-gradient(90deg, #2e8555, #76d9a8); }
+	.card.blue::before  { background: linear-gradient(90deg, #3578e5, #76b8f8); }
+	.card.teal::before  { background: linear-gradient(90deg, #0d9488, #5eead4); }
+
+	.card:hover {
+		transform: translateY(-3px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.card-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 0.75rem;
+	}
+
+	.icon {
+		font-size: 1.75rem;
+		line-height: 1;
+	}
+
+	.stat-block {
+		display: flex;
+		align-items: baseline;
+		gap: 0.25rem;
+	}
+
+	.stat {
+		font-size: var(--text-3xl);
+		font-weight: 700;
+		color: var(--gray-0);
+		line-height: 1;
+	}
+
+	.unit {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		font-weight: 500;
+	}
+
+	.label {
+		font-size: var(--text-md);
+		font-weight: 600;
+		color: var(--gray-0);
+		margin-bottom: 0.4rem;
+	}
+
+	.detail {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		line-height: 1.5;
+	}
+</style>

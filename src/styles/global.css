@@ -1,0 +1,234 @@
+/* Global variables — Docusaurus-inspired palette */
+:root {
+	/* Colors — neutral grays */
+	--gray-0: #1c1e21;
+	--gray-50: #2d2d2d;
+	--gray-100: #3d3d3d;
+	--gray-200: #4a4a4a;
+	--gray-300: #606770;
+	--gray-400: #8a8a8a;
+	--gray-500: #a3a3a3;
+	--gray-600: #c0c0c0;
+	--gray-700: #d9d9d9;
+	--gray-800: #e6e6e6;
+	--gray-900: #f5f6f7;
+	--gray-999-basis: 0, 0%, 100%;
+	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
+	--gray-999: #ffffff;
+
+	/* Docusaurus green accent */
+	--accent-light: #76d9a8;
+	--accent-regular: #2e8555;
+	--accent-dark: #1a5c3a;
+	--accent-overlay: hsla(150, 50%, 35%, 0.12);
+	--accent-subtle-overlay: var(--accent-overlay);
+	--accent-text-over: #ffffff;
+
+	--link-color: var(--accent-regular);
+
+	/* Gradients — minimal */
+	--gradient-stop-1: var(--accent-light);
+	--gradient-stop-2: var(--accent-regular);
+	--gradient-stop-3: var(--accent-dark);
+	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 0%, var(--gray-999) 100%);
+	--gradient-accent: linear-gradient(135deg, var(--accent-light), var(--accent-regular));
+	--gradient-accent-orange: linear-gradient(135deg, #76d9a8, var(--accent-regular));
+	--gradient-stroke: linear-gradient(180deg, var(--gray-800), var(--gray-700));
+
+	/* Shadows — softer */
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+
+	/* Text Sizes */
+	--text-sm: 0.875rem;
+	--text-base: 1rem;
+	--text-md: 1.125rem;
+	--text-lg: 1.25rem;
+	--text-xl: 1.625rem;
+	--text-2xl: 2.125rem;
+	--text-3xl: 2.625rem;
+	--text-4xl: 3.5rem;
+	--text-5xl: 4.5rem;
+
+	/* Fonts — system stack like Docusaurus */
+	--font-system:
+		system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+		"Open Sans", "Helvetica Neue", sans-serif;
+	--font-body: var(--font-system);
+	--font-brand: var(--font-system);
+
+	/* Transitions */
+	--theme-transition: 0.2s ease-in-out;
+}
+
+:root.theme-dark {
+	--gray-0: #e3e3e3;
+	--gray-50: #d4d4d4;
+	--gray-100: #c4c4c4;
+	--gray-200: #b4b4b4;
+	--gray-300: #9a9a9a;
+	--gray-400: #7a7a7a;
+	--gray-500: #5a5a5a;
+	--gray-600: #444950;
+	--gray-700: #343a40;
+	--gray-800: #2d3137;
+	--gray-900: #242526;
+	--gray-999-basis: 240, 4%, 10%;
+	--gray-999: #1b1b1d;
+
+	--accent-light: #1a5c3a;
+	--accent-regular: #25c2a0;
+	--accent-dark: #76d9a8;
+	--accent-overlay: hsla(168, 60%, 45%, 0.15);
+	--accent-subtle-overlay: hsla(168, 60%, 30%, 0.2);
+	--accent-text-over: #1b1b1d;
+
+	--link-color: var(--accent-regular);
+
+	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 0%, var(--gray-999) 100%);
+	--gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-700));
+
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+html,
+body {
+	min-height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	background-color: var(--gray-999);
+	color: var(--gray-200);
+	font-family: var(--font-body);
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: var(--link-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.1;
+	font-family: var(--font-brand);
+	font-weight: 600;
+	color: var(--gray-100);
+}
+
+h1 {
+	font-size: var(--text-5xl);
+}
+
+h2 {
+	font-size: var(--text-4xl);
+}
+
+h3 {
+	font-size: var(--text-3xl);
+}
+
+h4 {
+	font-size: var(--text-2xl);
+}
+
+h5 {
+	font-size: var(--text-xl);
+}
+
+/* Utilities */
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 83rem;
+	margin-inline: auto;
+	padding-inline: 1.5rem;
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+}
+
+.gap-2 {
+	gap: 0.5rem;
+}
+.gap-4 {
+	gap: 1rem;
+}
+.gap-8 {
+	gap: 2rem;
+}
+.gap-10 {
+	gap: 2.5rem;
+}
+.gap-15 {
+	gap: 3.75rem;
+}
+.gap-20 {
+	gap: 5rem;
+}
+.gap-30 {
+	gap: 7.5rem;
+}
+.gap-48 {
+	gap: 12rem;
+}
+
+@media (min-width: 50em) {
+	.lg\:gap-2 {
+		gap: 0.5rem;
+	}
+	.lg\:gap-4 {
+		gap: 1rem;
+	}
+	.lg\:gap-8 {
+		gap: 2rem;
+	}
+	.lg\:gap-10 {
+		gap: 2.5rem;
+	}
+	.lg\:gap-15 {
+		gap: 3.75rem;
+	}
+	.lg\:gap-20 {
+		gap: 5rem;
+	}
+	.lg\:gap-30 {
+		gap: 7.5rem;
+	}
+	.lg\:gap-48 {
+		gap: 12rem;
+	}
+}

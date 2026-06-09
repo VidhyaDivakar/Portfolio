@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import MainHead from '../../components/MainHead.astro';
+
+const articles = (await getCollection('articles'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+function formatDate(date: Date) {
+	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<html lang="en">
+<head>
+	<MainHead
+		title="Articles | Vidhya Divakar"
+		description="Technical articles on API documentation, AI in technical writing, and software development."
+	/>
+</head>
+<body>
+
+<div class="page">
+
+	<header class="top-nav">
+		<a href="/" class="back-link">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+			Back
+		</a>
+		<span class="top-name">Vidhya Divakar</span>
+	</header>
+
+	<main class="content">
+
+		<div class="page-title">
+			<h1>Articles</h1>
+			<p class="subtitle">Writing on technical documentation, AI, APIs, and software development.</p>
+		</div>
+
+		<div class="article-list">
+			{articles.map((article) => (
+				<a href={`/articles/${article.id}`} class="article-row">
+					<div class="article-main">
+						<h2 class="article-title">{article.data.title}</h2>
+						<p class="article-desc">{article.data.description}</p>
+						<div class="article-tags">
+							{article.data.tags.map((t) => <span class="tag">{t}</span>)}
+						</div>
+					</div>
+					<div class="article-meta">
+						<time class="article-date">{formatDate(article.data.publishDate)}</time>
+						<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,3 11,8 6,13"/></svg>
+					</div>
+				</a>
+			))}
+		</div>
+
+	</main>
+</div>
+
+</body>
+</html>
+
+<style>
+	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+	:root {
+		--bg: #0c0c0c; --surface: #0f1117; --border: #252525;
+		--text: #f5f5f5; --muted: #b4b4b4; --accent: #d4b896;
+		--font-sans: 'Inter', system-ui, sans-serif;
+		--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+	}
+
+	html, body { background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+
+	.top-nav {
+		position: sticky; top: 0; z-index: 10;
+		display: flex; align-items: center; justify-content: space-between;
+		padding: 1rem 4vw;
+		background: rgba(12,12,12,0.88); backdrop-filter: blur(10px);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.back-link {
+		display: inline-flex; align-items: center; gap: 0.4rem;
+		font-size: 0.82rem; font-weight: 600; font-family: var(--font-mono);
+		color: var(--muted); text-decoration: none; letter-spacing: 0.05em;
+		transition: color 0.2s;
+	}
+	.back-link:hover { color: var(--accent); }
+	.top-name { font-size: 0.8rem; font-family: var(--font-mono); color: var(--muted); letter-spacing: 0.08em; }
+
+	.content { max-width: 780px; margin: 0 auto; padding: 4rem 4vw 6rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+	.page-title h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; color: var(--text); }
+	.subtitle { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); }
+
+	.article-list { display: flex; flex-direction: column; }
+
+	.article-row {
+		display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;
+		padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+		text-decoration: none; color: inherit;
+		transition: background 0.2s;
+	}
+	.article-row:first-child { border-top: 1px solid var(--border); }
+	.article-row:hover .article-title { color: var(--accent); }
+	.article-row:hover .arrow { opacity: 1; transform: translateX(3px); }
+
+	.article-main { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+
+	.article-title { font-size: 1rem; font-weight: 600; color: var(--text); transition: color 0.2s; line-height: 1.4; }
+	.article-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+	.article-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.25rem; }
+	.tag {
+		font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 0.2rem;
+		background: rgba(212,184,150,0.08); color: var(--accent);
+		border: 1px solid rgba(212,184,150,0.18);
+	}
+
+	.article-meta {
+		display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;
+		padding-top: 0.15rem; flex-shrink: 0;
+	}
+
+	.article-date { font-size: 0.75rem; font-family: var(--font-mono); color: var(--muted); white-space: nowrap; }
+
+	.arrow {
+		width: 14px; height: 14px; color: var(--accent);
+		opacity: 0; transition: opacity 0.2s, transform 0.2s;
+	}
+</style>

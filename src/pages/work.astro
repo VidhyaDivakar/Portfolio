@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import MainHead from '../components/MainHead.astro';
+
+const projects = (await getCollection('work'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<html lang="en">
+<head>
+	<MainHead
+		title="Dev Projects | Vidhya Divakar"
+		description="Development projects and experiments — MERN stack, open source contributions, and learning builds."
+	/>
+</head>
+<body>
+
+<div class="page">
+
+	<header class="top-nav">
+		<a href="/" class="back-link">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+			Back
+		</a>
+		<span class="top-name">Vidhya Divakar</span>
+	</header>
+
+	<main class="content">
+
+		<div class="page-title">
+			<h1>Dev Projects</h1>
+			<p class="subtitle">Development experiments and builds — learning projects from the MERN stack journey.</p>
+		</div>
+
+		<div class="projects-list">
+			{projects.map((project) => (
+				<a href={`/work/${project.id}`} class="project-row">
+					<div class="project-body">
+						<div class="project-header">
+							<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5,4 1,8 4.5,12"/><polyline points="11.5,4 15,8 11.5,12"/><line x1="6.5" y1="2.5" x2="9.5" y2="13.5"/></svg>
+							<h2 class="project-title">{project.data.title}</h2>
+						</div>
+						<p class="project-desc">{project.data.description}</p>
+						<div class="project-tags">
+							{project.data.tags.map((t) => <span class="tag">{t}</span>)}
+						</div>
+					</div>
+					<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,3 11,8 6,13"/></svg>
+				</a>
+			))}
+		</div>
+
+	</main>
+</div>
+
+</body>
+</html>
+
+<style>
+	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+	:root {
+		--bg: #0c0c0c; --surface: #0f1117; --border: #252525;
+		--text: #f5f5f5; --muted: #b4b4b4; --accent: #d4b896;
+		--font-sans: 'Inter', system-ui, sans-serif;
+		--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+	}
+
+	html, body { background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+
+	.top-nav {
+		position: sticky; top: 0; z-index: 10;
+		display: flex; align-items: center; justify-content: space-between;
+		padding: 1rem 4vw;
+		background: rgba(12,12,12,0.88); backdrop-filter: blur(10px);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.back-link {
+		display: inline-flex; align-items: center; gap: 0.4rem;
+		font-size: 0.82rem; font-weight: 600; font-family: var(--font-mono);
+		color: var(--muted); text-decoration: none; letter-spacing: 0.05em;
+		transition: color 0.2s;
+	}
+	.back-link:hover { color: var(--accent); }
+	.top-name { font-size: 0.8rem; font-family: var(--font-mono); color: var(--muted); letter-spacing: 0.08em; }
+
+	.content { max-width: 780px; margin: 0 auto; padding: 4rem 4vw 6rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+	.page-title h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; color: var(--text); }
+	.subtitle { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+	.projects-list { display: flex; flex-direction: column; }
+
+	.project-row {
+		display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
+		padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+		text-decoration: none; color: inherit;
+	}
+	.project-row:first-child { border-top: 1px solid var(--border); }
+	.project-row:hover .project-title { color: var(--accent); }
+	.project-row:hover .arrow { opacity: 1; transform: translateX(3px); }
+
+	.project-body { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+
+	.project-header { display: flex; align-items: center; gap: 0.5rem; }
+	.project-icon { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
+	.project-title { font-size: 1rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
+
+	.project-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+	.project-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.25rem; }
+	.tag {
+		font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 0.2rem;
+		background: rgba(212,184,150,0.08); color: var(--accent);
+		border: 1px solid rgba(212,184,150,0.18);
+	}
+
+	.arrow {
+		width: 14px; height: 14px; color: var(--accent);
+		opacity: 0; transition: opacity 0.2s, transform 0.2s;
+		margin-top: 0.25rem; flex-shrink: 0;
+	}
+</style>

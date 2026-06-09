@@ -1,0 +1,145 @@
+---
+import { getCollection, render } from 'astro:content';
+import MainHead from '../../components/MainHead.astro';
+
+export async function getStaticPaths() {
+	const articles = await getCollection('articles');
+	return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+function formatDate(date: Date) {
+	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<html lang="en">
+<head>
+	<MainHead title={`${article.data.title} | Vidhya Divakar`} description={article.data.description} />
+	{article.data.canonicalUrl && <link rel="canonical" href={article.data.canonicalUrl} />}
+</head>
+<body>
+
+<div class="page">
+
+	<header class="top-nav">
+		<a href="/articles/" class="back-link">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+			All Articles
+		</a>
+		<a href="/" class="top-name">Vidhya Divakar</a>
+	</header>
+
+	<main class="content">
+
+		<div class="article-header">
+			<div class="article-meta">
+				<time class="article-date">{formatDate(article.data.publishDate)}</time>
+				<div class="article-tags">
+					{article.data.tags.map((t) => <span class="tag">{t}</span>)}
+				</div>
+			</div>
+			<h1 class="article-title">{article.data.title}</h1>
+			<p class="article-desc">{article.data.description}</p>
+		</div>
+
+		<div class="prose">
+			<Content />
+		</div>
+
+		<div class="article-footer">
+			<a href="/articles/" class="back-btn">
+				<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+				Back to all articles
+			</a>
+		</div>
+
+	</main>
+</div>
+
+</body>
+</html>
+
+<style>
+	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+	:root {
+		--bg: #0c0c0c; --surface: #0f1117; --border: #252525;
+		--text: #f5f5f5; --muted: #b4b4b4; --accent: #d4b896;
+		--font-sans: 'Inter', system-ui, sans-serif;
+		--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+	}
+
+	html, body { background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+
+	.top-nav {
+		position: sticky; top: 0; z-index: 10;
+		display: flex; align-items: center; justify-content: space-between;
+		padding: 1rem 4vw;
+		background: rgba(12,12,12,0.88); backdrop-filter: blur(10px);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.back-link, .top-name {
+		display: inline-flex; align-items: center; gap: 0.4rem;
+		font-size: 0.82rem; font-weight: 600; font-family: var(--font-mono);
+		color: var(--muted); text-decoration: none; letter-spacing: 0.05em;
+		transition: color 0.2s;
+	}
+	.back-link:hover, .top-name:hover { color: var(--accent); }
+
+	.content { max-width: 720px; margin: 0 auto; padding: 4rem 4vw 6rem; display: flex; flex-direction: column; gap: 3rem; }
+
+	.article-header { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+	.article-meta { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+	.article-date { font-size: 0.75rem; font-family: var(--font-mono); color: var(--muted); }
+
+	.article-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+	.tag {
+		font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 0.2rem;
+		background: rgba(212,184,150,0.08); color: var(--accent);
+		border: 1px solid rgba(212,184,150,0.18);
+	}
+
+	.article-title { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; color: var(--text); line-height: 1.25; }
+	.article-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+	/* PROSE */
+	.prose { display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.95rem; line-height: 1.8; color: #d0d0d0; }
+
+	.prose :global(h2) { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-top: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+	.prose :global(h3) { font-size: 1rem; font-weight: 600; color: var(--text); margin-top: 0.5rem; }
+	.prose :global(p) { color: #d0d0d0; }
+	.prose :global(strong) { color: var(--text); font-weight: 600; }
+	.prose :global(em) { color: var(--accent); font-style: italic; }
+	.prose :global(a) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+	.prose :global(a:hover) { color: #e5ceaf; }
+
+	.prose :global(ul), .prose :global(ol) { padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+	.prose :global(li) { color: #d0d0d0; }
+
+	.prose :global(table) { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+	.prose :global(th) { text-align: left; padding: 0.6rem 1rem; background: var(--surface); color: var(--text); font-weight: 600; border: 1px solid var(--border); }
+	.prose :global(td) { padding: 0.55rem 1rem; border: 1px solid var(--border); color: #d0d0d0; }
+	.prose :global(tr:hover td) { background: rgba(255,255,255,0.02); }
+
+	.prose :global(code) { font-family: var(--font-mono); font-size: 0.82em; background: var(--surface); color: var(--accent); padding: 0.15em 0.4em; border-radius: 0.25rem; border: 1px solid var(--border); }
+	.prose :global(pre) { background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem; overflow-x: auto; }
+	.prose :global(pre code) { background: none; border: none; padding: 0; font-size: 0.85rem; color: #d0d0d0; }
+
+	.prose :global(blockquote) { border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1.25rem; color: var(--muted); font-style: italic; }
+	.prose :global(hr) { border: none; border-top: 1px solid var(--border); }
+
+	.article-footer { padding-top: 1rem; border-top: 1px solid var(--border); }
+
+	.back-btn {
+		display: inline-flex; align-items: center; gap: 0.4rem;
+		font-size: 0.82rem; font-weight: 600; font-family: var(--font-mono);
+		color: var(--muted); text-decoration: none; letter-spacing: 0.05em;
+		transition: color 0.2s;
+	}
+	.back-btn:hover { color: var(--accent); }
+</style>

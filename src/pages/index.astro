@@ -1,0 +1,764 @@
+---
+import { getCollection } from 'astro:content';
+import MainHead from '../components/MainHead.astro';
+import SkillsAccordion from '../components/SkillsAccordion.astro';
+
+const projects = (await getCollection('work'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const experience = (await getCollection('writing'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<html lang="en">
+<head>
+	<MainHead
+		title="Vidhya Divakar — Technical Documentation Professional"
+		description="Senior Technical Documentation Professional with 12+ years of experience across Navis N4, SPARCS, XPS and enterprise platforms."
+	/>
+</head>
+<body>
+
+<div class="layout">
+
+	<!-- LEFT PANEL -->
+	<aside class="left">
+		<div class="left-inner">
+
+			<div class="identity">
+				<h1 class="name"><a href="/">Vidhya Divakar</a></h1>
+				<h2 class="role">Senior Technical Documentation Professional</h2>
+				<p class="tagline">
+					I translate complex systems — from Navis N4 terminals to REST APIs — into clear, structured documentation that developers and users actually rely on.
+				</p>
+			</div>
+
+			<nav class="section-nav" aria-label="On-page sections">
+				<ul>
+					<li><a href="#about" class="nav-link" data-section="about">
+						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/></svg>
+						About
+					</a></li>
+					<li><a href="#experience" class="nav-link" data-section="experience">
+						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><polyline points="4,7 6.5,9.5 4,12"/><line x1="9" y1="12" x2="12.5" y2="12"/></svg>
+						Experience
+					</a></li>
+					<li><a href="#projects" class="nav-link" data-section="projects">
+						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4.5,4 1,8 4.5,12"/><polyline points="11.5,4 15,8 11.5,12"/><line x1="6.5" y1="2.5" x2="9.5" y2="13.5"/></svg>
+						Projects
+					</a></li>
+					<li><a href="#skills" class="nav-link" data-section="skills">
+						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1"/><line x1="6" y1="4" x2="6" y2="2"/><line x1="10" y1="4" x2="10" y2="2"/><line x1="6" y1="14" x2="6" y2="12"/><line x1="10" y1="14" x2="10" y2="12"/><line x1="4" y1="6" x2="2" y2="6"/><line x1="4" y1="10" x2="2" y2="10"/><line x1="14" y1="6" x2="12" y2="6"/><line x1="14" y1="10" x2="12" y2="10"/></svg>
+						Skills
+					</a></li>
+				</ul>
+			</nav>
+
+			<div class="currently">
+				<span class="pulse" aria-hidden="true"></span>
+				<span>Currently upskilling in <strong>MERN Stack</strong></span>
+			</div>
+
+			<div class="socials">
+				<a href="https://github.com/REPLACE_WITH_YOUR_GITHUB" target="_blank" rel="noopener" aria-label="GitHub">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.02c-3.34.72-4.04-1.6-4.04-1.6-.54-1.38-1.33-1.74-1.33-1.74-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.3.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.28-1.23 3.28-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.3c0 .32.22.7.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+				</a>
+				<a href="https://linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+				</a>
+				<a href="https://www.goodreads.com/user/show/186501107-vidhya-divakar" target="_blank" rel="noopener" aria-label="Goodreads" class="goodreads-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+						<rect width="22" height="22" rx="4" fill="#553B08"/>
+						<path fill="#F4F1EA" transform="translate(4.5,1.2) scale(0.54)" d="M11.43 23.995c-3.608-.208-6.274-2.077-6.274-5.488 0-.565.08-1.019.24-1.766h2.138c-.08.485-.12.773-.12 1.13 0 2.354 1.716 3.53 5.03 3.53 3.25 0 4.862-1.404 4.862-4.554v-1.685l-.08-.04c-.803 1.626-2.197 2.43-4.142 2.43-3.852 0-5.968-2.754-5.968-7.485 0-4.972 2.358-7.564 6.03-7.564 2.085 0 3.568.887 4.372 2.672l.08.04V3.11h2.037v14.666c0 4.168-2.438 6.218-8.203 6.218zm.607-21.343c-2.677 0-4.072 1.846-4.072 5.692 0 3.854 1.315 5.572 4.032 5.572 2.998 0 4.252-1.606 4.252-5.612 0-3.885-1.294-5.652-4.212-5.652z"/>
+					</svg>
+				</a>
+			</div>
+
+		</div>
+	</aside>
+
+	<!-- RIGHT PANEL -->
+	<main class="right">
+
+		<!-- ABOUT -->
+		<section id="about" class="section">
+			<h3 class="section-label"><span>About</span></h3>
+			<div class="about-body">
+				<p>Senior Technical Documentation Professional with <strong>12+ years</strong> of experience across <strong>Navis Terminal Operating Systems (N4, SPARCS, XPS)</strong> and enterprise SaaS, CRM, and logistics platforms. Strong domain expertise in port, shipping, container, and terminal operations with hands-on experience in N4 documentation, configuration guides, API specifications, release notes, and operational workflows.</p>
+				<p>Experienced working across Product, Development, QA, and Support teams within SDLC environments, translating complex system behavior into clear, structured technical documentation. Began career with deep involvement in early N4 (2.x) environments, gaining strong exposure to configuration, reference data, enhancements, testing environments, and release cycles.</p>
+				<p>Adapted to evolving technology stacks from traditional documentation tools to modern practices involving <strong>REST APIs, JSON, CI/CD workflows, and Docs-as-Code</strong>. Currently upskilling in full-stack development (MERN) to strengthen API and application development understanding alongside documentation expertise.</p>
+				<div class="about-links">
+					<a href="/about/" class="text-link">Full background & education <span aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- EXPERIENCE -->
+		<section id="experience" class="section">
+			<h3 class="section-label"><span>Experience</span></h3>
+			<div class="timeline">
+				{experience.map((entry) => (
+					<a href={`/writing/${entry.id}`} class="timeline-item">
+						<div class="timeline-period">{entry.data.period}</div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<h4>{entry.data.role}</h4>
+								<span class="timeline-company">{entry.data.title}</span>
+							</div>
+							<p class="timeline-desc">{entry.data.description}</p>
+							<div class="timeline-tags">
+								{entry.data.tags.map((t) => <span class="tag">{t}</span>)}
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+			<a href="/writing/" class="view-all">View full writing portfolio <span aria-hidden="true">↗</span></a>
+		</section>
+
+		<!-- PROJECTS -->
+		<section id="projects" class="section">
+			<h3 class="section-label"><span>Projects</span></h3>
+
+			<div class="proj-tabs">
+				<button class="proj-tab active" data-tab="featured">Featured Work</button>
+				<button class="proj-tab" data-tab="dev">Dev Experiments</button>
+			</div>
+
+			<!-- FEATURED WORK -->
+			<div class="proj-panel" data-panel="featured">
+				<div class="projects-list">
+
+					<a href="https://github.com/VidhyaDivakar/Portfolio/blob/main/extract_data_using_API.ipynb" target="_blank" rel="noopener" class="project-card">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="1.5" width="12" height="13" rx="1"/><path d="M5 6l2.5 2.5L5 11"/><line x1="9" y1="11" x2="11.5" y2="11"/></svg>
+								<h4>Extract Data using API</h4>
+								<svg class="ext-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg>
+							</div>
+							<p class="project-desc">Jupyter notebook demonstrating API-based data extraction — covers authentication, pagination, and parsing JSON responses into structured datasets.</p>
+							<div class="project-tags">
+								<span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">API</span><span class="tag">Data Extraction</span>
+							</div>
+						</div>
+					</a>
+
+					<a href="https://github.com/VidhyaDivakar/Portfolio/blob/main/api_based_data_extraction_error_handling.md" target="_blank" rel="noopener" class="project-card">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5" x2="8" y2="8.5"/><circle cx="8" cy="11" r="0.5" fill="currentColor"/></svg>
+								<h4>API Error Handling Guide</h4>
+								<svg class="ext-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg>
+							</div>
+							<p class="project-desc">Documentation covering common API error patterns, HTTP status codes, retry strategies, and how to handle failures gracefully in data extraction pipelines.</p>
+							<div class="project-tags">
+								<span class="tag">API</span><span class="tag">Error Handling</span><span class="tag">Documentation</span><span class="tag">Markdown</span>
+							</div>
+						</div>
+					</a>
+
+					<a href="https://github.com/VidhyaDivakar/Portfolio/blob/main/RegistryTypeAttribute.md" target="_blank" rel="noopener" class="project-card">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="1.5"/><line x1="5" y1="5.5" x2="11" y2="5.5"/><line x1="5" y1="8" x2="9" y2="8"/><line x1="5" y1="10.5" x2="7.5" y2="10.5"/></svg>
+								<h4>RegistryTypeAttribute Reference</h4>
+								<svg class="ext-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg>
+							</div>
+							<p class="project-desc">Technical reference document for the RegistryTypeAttribute — structured attribute definitions, usage context, and configuration guidance.</p>
+							<div class="project-tags">
+								<span class="tag">Technical Writing</span><span class="tag">Reference Doc</span><span class="tag">N4</span>
+							</div>
+						</div>
+					</a>
+
+					<a href="https://github.com/VidhyaDivakar/Portfolio/blob/main/Tech%20Glossary.md" target="_blank" rel="noopener" class="project-card">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h5v10H2zM9 3h5v10H9z"/><line x1="7" y1="8" x2="9" y2="8"/></svg>
+								<h4>Tech Glossary</h4>
+								<svg class="ext-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg>
+							</div>
+							<p class="project-desc">Curated glossary of technical terms — definitions, context, and usage notes for domain-specific vocabulary used in API, terminal operations, and software documentation.</p>
+							<div class="project-tags">
+								<span class="tag">Glossary</span><span class="tag">Documentation</span><span class="tag">Technical Writing</span>
+							</div>
+						</div>
+					</a>
+
+					<div class="project-card no-link">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5,4 1,8 4.5,12"/><polyline points="11.5,4 15,8 11.5,12"/><line x1="6.5" y1="2.5" x2="9.5" y2="13.5"/></svg>
+								<h4>Java DataTypes Demo</h4>
+								<span class="local-badge">Local</span>
+							</div>
+							<p class="project-desc">Interactive HTML page demonstrating Java primitive and reference data types with examples — built as a learning exercise during automation testing training.</p>
+							<div class="project-tags">
+								<span class="tag">Java</span><span class="tag">HTML</span><span class="tag">Learning</span>
+							</div>
+						</div>
+					</div>
+
+					<a href="/articles/" class="project-card">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M2 7h8M2 10h10M2 13h6"/></svg>
+								<h4>Articles</h4>
+							</div>
+							<p class="project-desc">Articles on technical writing, AI, APIs, and software development.</p>
+							<div class="project-tags">
+								<span class="tag">Technical Writing</span><span class="tag">AI</span><span class="tag">API</span><span class="tag">Published</span>
+							</div>
+						</div>
+					</a>
+
+				</div>
+			</div>
+
+			<!-- DEV EXPERIMENTS -->
+			<div class="proj-panel hidden" data-panel="dev">
+				<div class="projects-list">
+					{projects.map((project) => (
+						<a href={`/work/${project.id}`} class="project-card">
+							<div class="project-inner">
+								<div class="project-header">
+									<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4.5,4 1,8 4.5,12"/><polyline points="11.5,4 15,8 11.5,12"/><line x1="6.5" y1="2.5" x2="9.5" y2="13.5"/></svg>
+									<h4>{project.data.title}</h4>
+								</div>
+								<p class="project-desc">{project.data.description}</p>
+								<div class="project-tags">
+									{project.data.tags.map((t) => <span class="tag">{t}</span>)}
+								</div>
+							</div>
+						</a>
+					))}
+				</div>
+				<a href="/work/" class="view-all">View all dev projects <span aria-hidden="true">↗</span></a>
+			</div>
+
+		</section>
+
+		<!-- SKILLS -->
+		<section id="skills" class="section">
+			<h3 class="section-label"><span>Skills & Abilities</span></h3>
+			<SkillsAccordion />
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="footer">
+			<p>Built by Vidhya Divakar · <a href="https://astro.build/" target="_blank" rel="noopener" class="footer-link">Astro</a> · <a href="https://pages.github.com/" target="_blank" rel="noopener" class="footer-link">GitHub Pages</a></p>
+		</footer>
+
+	</main>
+</div>
+
+<style>
+	/* PALETTE */
+	:root {
+		--bg:            #0c0c0c;
+		--bg-card:       #141414;
+		--bg-card-hover: #1c1c1c;
+		--border:        #252525;
+		--text:          #f5f5f5;
+		--muted:         #b4b4b4;
+		--accent:        #d4b896;
+		--accent-hover:  #e5ceaf;
+		--accent-glow:   hsla(35, 50%, 63%, 0.1);
+		--font:      system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		--font-mono: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+	}
+
+	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+	html { scroll-behavior: smooth; }
+	body {
+		background: var(--bg);
+		color: var(--text);
+		font-family: var(--font);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+	a { color: inherit; text-decoration: none; }
+
+	/* LAYOUT */
+	.layout {
+		display: block;
+		min-height: 100vh;
+	}
+
+	/* LEFT PANEL */
+	.left {
+		padding: 3rem 2rem 2rem;
+		background: #1a1f2e;
+	}
+
+	@media (min-width: 1024px) {
+		.left {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 42%;
+			height: 100vh;
+			padding: 5rem 2rem 5rem 8vw;
+			overflow-y: auto;
+			border-right: 1px solid var(--border);
+		}
+	}
+
+	.left-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+		height: 100%;
+	}
+
+	@media (min-width: 1024px) {
+		.left-inner { justify-content: space-between; }
+	}
+
+	.name {
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		color: var(--text);
+		line-height: 1.1;
+	}
+	.name a { transition: color 0.2s; }
+	.name a:hover { color: var(--accent); }
+
+	.role {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--accent);
+		margin-top: 0.5rem;
+		line-height: 1.5;
+		letter-spacing: 0.02em;
+	}
+
+	.tagline {
+		margin-top: 1rem;
+		font-size: 0.85rem;
+		color: var(--muted);
+		line-height: 1.8;
+		max-width: 36ch;
+	}
+
+	/* SECTION NAV */
+	.section-nav ul {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	@media (min-width: 1024px) {
+		.section-nav ul {
+			flex-direction: column;
+			gap: 0;
+		}
+	}
+
+	.nav-icon {
+		width: 15px;
+		height: 15px;
+		flex-shrink: 0;
+		opacity: 0.5;
+		transition: opacity 0.2s ease;
+	}
+
+	.nav-link:hover .nav-icon,
+	.nav-link.active .nav-icon {
+		opacity: 1;
+	}
+
+	.nav-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.4rem 0;
+		font-size: 0.72rem;
+		font-weight: 700;
+		font-family: var(--font-mono);
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--muted);
+		transition: color 0.2s;
+	}
+
+	.nav-link:hover,
+	.nav-link.active {
+		color: var(--text);
+	}
+
+	@media (max-width: 1023px) {
+		.nav-link {
+			padding: 0.3rem 0.7rem;
+			border: 1px solid var(--border);
+			border-radius: 999px;
+			font-size: 0.7rem;
+		}
+		.nav-link.active {
+			border-color: var(--accent);
+			color: var(--accent);
+		}
+	}
+
+	/* CURRENTLY */
+	.currently {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-size: 0.8rem;
+		color: var(--muted);
+	}
+	.currently strong { color: var(--accent); font-weight: 600; }
+
+	.pulse {
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #6ee7b7;
+		box-shadow: 0 0 0 0 rgba(110, 231, 183, 0.5);
+		animation: pulse 2.5s infinite;
+		flex-shrink: 0;
+	}
+	@keyframes pulse {
+		0%   { box-shadow: 0 0 0 0   rgba(110, 231, 183, 0.5); }
+		70%  { box-shadow: 0 0 0 7px rgba(110, 231, 183, 0);   }
+		100% { box-shadow: 0 0 0 0   rgba(110, 231, 183, 0);   }
+	}
+
+	/* SOCIALS */
+	.socials {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+	.socials a {
+		color: var(--muted);
+		display: flex;
+		transition: color 0.2s, transform 0.2s;
+	}
+	.socials a:hover {
+		color: var(--accent);
+		transform: translateY(-2px);
+	}
+	.goodreads-icon:hover svg rect {
+		fill: #7a5520;
+	}
+
+	/* RIGHT PANEL */
+	.right {
+		flex: 1;
+		padding: 3rem 2rem 6rem;
+		background: #0f1117;
+	}
+
+	@media (min-width: 1024px) {
+		.right {
+			margin-left: 42%;
+			padding: 5rem 8vw 6rem 4rem;
+		}
+	}
+
+	/* SECTIONS */
+	.section { margin-bottom: 5rem; }
+
+	.section-label {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		font-size: 0.68rem;
+		font-family: var(--font-mono);
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--text);
+		margin-bottom: 2rem;
+	}
+	.section-label::after {
+		content: '';
+		flex: 1;
+		height: 1px;
+		background: var(--border);
+	}
+	@media (min-width: 1024px) {
+		.section-label { display: none; }
+	}
+
+	/* ABOUT */
+	.about-body {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.about-body p {
+		font-size: 0.9rem;
+		color: var(--muted);
+		line-height: 1.85;
+	}
+	.about-body strong { color: var(--text); font-weight: 600; }
+	.about-links { margin-top: 0.5rem; }
+
+	.text-link {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--accent);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		transition: gap 0.2s;
+	}
+	.text-link:hover { gap: 0.6rem; }
+
+	/* TIMELINE */
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+	.timeline::before {
+		content: '';
+		position: absolute;
+		left: 7rem;
+		top: 0.4rem;
+		bottom: 0.4rem;
+		width: 1px;
+		background: var(--border);
+	}
+	@media (max-width: 599px) {
+		.timeline::before { display: none; }
+	}
+
+	.timeline-item {
+		display: grid;
+		grid-template-columns: 7rem 1fr;
+		gap: 0 1.25rem;
+		padding: 1rem 0.75rem;
+		border-radius: 0.375rem;
+		transition: background 0.2s;
+		position: relative;
+	}
+	.timeline-item::before {
+		content: '';
+		position: absolute;
+		left: calc(7rem - 3px);
+		top: 1.5rem;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--border);
+		border: 2px solid var(--bg);
+		transition: background 0.2s;
+		z-index: 1;
+	}
+	.timeline-item:hover { background: var(--bg-card); }
+	.timeline-item:hover::before { background: var(--accent); }
+
+	@media (max-width: 599px) {
+		.timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+		.timeline-item::before { display: none; }
+	}
+
+	.timeline-period {
+		font-size: 0.68rem;
+		font-family: var(--font-mono);
+		color: var(--muted);
+		padding-top: 0.2rem;
+		line-height: 1.4;
+		text-align: right;
+		padding-right: 1.25rem;
+	}
+
+	.timeline-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.4rem;
+		margin-bottom: 0.35rem;
+	}
+	.timeline-header h4 {
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: var(--text);
+		transition: color 0.2s;
+	}
+	.timeline-item:hover .timeline-header h4 { color: var(--accent); }
+
+	.timeline-company {
+		font-size: 0.78rem;
+		color: var(--muted);
+	}
+	.timeline-desc {
+		font-size: 0.8rem;
+		color: var(--muted);
+		line-height: 1.7;
+		margin-bottom: 0.5rem;
+	}
+
+	/* PROJECT TABS */
+	.proj-tabs {
+		display: flex;
+		gap: 0;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 1.25rem;
+	}
+
+	.proj-tab {
+		padding: 0.5rem 1.1rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		font-family: var(--font-mono);
+		letter-spacing: 0.08em;
+		color: var(--muted);
+		background: none;
+		border: none;
+		border-bottom: 2px solid transparent;
+		cursor: pointer;
+		transition: color 0.2s, border-color 0.2s;
+		margin-bottom: -1px;
+	}
+
+	.proj-tab:hover { color: var(--text); }
+	.proj-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+	.proj-panel.hidden { display: none; }
+
+	.no-link { cursor: default; }
+	.no-link:hover { background: none !important; }
+
+	.ext-icon {
+		width: 11px;
+		height: 11px;
+		color: var(--muted);
+		margin-left: auto;
+		opacity: 0;
+		transition: opacity 0.2s;
+		flex-shrink: 0;
+	}
+	.project-card:hover .ext-icon { opacity: 1; }
+
+	.local-badge {
+		font-size: 0.65rem;
+		font-weight: 600;
+		padding: 0.1rem 0.45rem;
+		border-radius: 999px;
+		background: rgba(255,255,255,0.06);
+		color: var(--muted);
+		margin-left: auto;
+		letter-spacing: 0.05em;
+	}
+
+	/* PROJECTS */
+	.projects-list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.project-card {
+		border-radius: 0.375rem;
+		transition: background 0.2s;
+	}
+	.project-card:hover { background: var(--bg-card); }
+
+	.project-inner {
+		padding: 1rem 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.project-header {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.project-icon { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; }
+	.project-header h4 {
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: var(--text);
+		transition: color 0.2s;
+	}
+	.project-card:hover .project-header h4 { color: var(--accent); }
+	.project-desc {
+		font-size: 0.8rem;
+		color: var(--muted);
+		line-height: 1.7;
+	}
+
+	/* TAGS */
+	.timeline-tags,
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+	}
+	.tag {
+		font-size: 0.68rem;
+		font-family: var(--font-mono);
+		padding: 0.18rem 0.55rem;
+		border-radius: 999px;
+		background: var(--accent-glow);
+		color: var(--accent);
+		font-weight: 500;
+		border: 1px solid hsla(35, 50%, 63%, 0.18);
+	}
+
+	/* VIEW ALL */
+	.view-all {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-top: 1.25rem;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--accent);
+		transition: gap 0.2s;
+	}
+	.view-all:hover { gap: 0.6rem; }
+
+	/* FOOTER */
+	.footer {
+		margin-top: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border);
+	}
+	.footer p { font-size: 0.75rem; color: var(--muted); }
+	.footer-link { color: var(--accent); transition: color 0.2s; }
+	.footer-link:hover { color: var(--accent-hover); }
+</style>
+
+<script>
+	// Active nav on scroll
+	const sections = document.querySelectorAll<HTMLElement>('section[id]');
+	const navLinks = document.querySelectorAll<HTMLElement>('.nav-link[data-section]');
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					navLinks.forEach((link) => {
+						link.classList.toggle('active', link.dataset.section === entry.target.id);
+					});
+				}
+			});
+		},
+		{ rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+	);
+
+	sections.forEach((s) => observer.observe(s));
+
+	// Project tab switcher
+	document.querySelectorAll<HTMLButtonElement>('.proj-tab').forEach((tab) => {
+		tab.addEventListener('click', () => {
+			document.querySelectorAll('.proj-tab').forEach((t) => t.classList.remove('active'));
+			document.querySelectorAll('.proj-panel').forEach((p) => p.classList.add('hidden'));
+			tab.classList.add('active');
+			const panel = document.querySelector(`[data-panel="${tab.dataset.tab}"]`);
+			panel?.classList.remove('hidden');
+		});
+	});
+</script>
+
+</body>
+</html>
