@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vidhyaminuteread.github.io',
+  site: 'https://vidhyadivakar.com',
   base: '/',
   output: 'static',
 });
