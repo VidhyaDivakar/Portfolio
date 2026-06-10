@@ -39,13 +39,13 @@ const experience = (await getCollection('writing'))
 						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/></svg>
 						About
 					</a></li>
-					<li><a href="#experience" class="nav-link" data-section="experience">
-						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><polyline points="4,7 6.5,9.5 4,12"/><line x1="9" y1="12" x2="12.5" y2="12"/></svg>
-						Experience
-					</a></li>
 					<li><a href="#projects" class="nav-link" data-section="projects">
 						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4.5,4 1,8 4.5,12"/><polyline points="11.5,4 15,8 11.5,12"/><line x1="6.5" y1="2.5" x2="9.5" y2="13.5"/></svg>
 						Projects
+					</a></li>
+					<li><a href="#experience" class="nav-link" data-section="experience">
+						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><polyline points="4,7 6.5,9.5 4,12"/><line x1="9" y1="12" x2="12.5" y2="12"/></svg>
+						Experience
 					</a></li>
 					<li><a href="#skills" class="nav-link" data-section="skills">
 						<svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1"/><line x1="6" y1="4" x2="6" y2="2"/><line x1="10" y1="4" x2="10" y2="2"/><line x1="6" y1="14" x2="6" y2="12"/><line x1="10" y1="14" x2="10" y2="12"/><line x1="4" y1="6" x2="2" y2="6"/><line x1="4" y1="10" x2="2" y2="10"/><line x1="14" y1="6" x2="12" y2="6"/><line x1="14" y1="10" x2="12" y2="10"/></svg>
@@ -91,29 +91,6 @@ const experience = (await getCollection('writing'))
 					<a href="/about/" class="text-link">Full background & education <span aria-hidden="true">→</span></a>
 				</div>
 			</div>
-		</section>
-
-		<!-- EXPERIENCE -->
-		<section id="experience" class="section">
-			<h3 class="section-label"><span>Experience</span></h3>
-			<div class="timeline">
-				{experience.map((entry) => (
-					<a href={`/writing/${entry.id}`} class="timeline-item">
-						<div class="timeline-period">{entry.data.period}</div>
-						<div class="timeline-content">
-							<div class="timeline-header">
-								<h4>{entry.data.role}</h4>
-								<span class="timeline-company">{entry.data.title}</span>
-							</div>
-							<p class="timeline-desc">{entry.data.description}</p>
-							<div class="timeline-tags">
-								{entry.data.tags.map((t) => <span class="tag">{t}</span>)}
-							</div>
-						</div>
-					</a>
-				))}
-			</div>
-			<a href="/writing/" class="view-all">View full writing portfolio <span aria-hidden="true">↗</span></a>
 		</section>
 
 		<!-- PROJECTS -->
@@ -236,6 +213,29 @@ const experience = (await getCollection('writing'))
 				<a href="/work/" class="view-all">View all dev projects <span aria-hidden="true">↗</span></a>
 			</div>
 
+		</section>
+
+		<!-- EXPERIENCE -->
+		<section id="experience" class="section">
+			<h3 class="section-label"><span>Experience</span></h3>
+			<div class="timeline">
+				{experience.map((entry) => (
+					<a href={`/writing/${entry.id}`} class="timeline-item">
+						<div class="timeline-period">{entry.data.period}</div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<h4>{entry.data.role}</h4>
+								<span class="timeline-company">{entry.data.title}</span>
+							</div>
+							<p class="timeline-desc">{entry.data.description}</p>
+							<div class="timeline-tags">
+								{entry.data.tags.map((t) => <span class="tag">{t}</span>)}
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+			<a href="/writing/" class="view-all">View full writing portfolio <span aria-hidden="true">↗</span></a>
 		</section>
 
 		<!-- SKILLS -->
