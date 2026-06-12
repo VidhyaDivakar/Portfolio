@@ -13,7 +13,7 @@ const experience = (await getCollection('writing'))
 <html lang="en">
 <head>
 	<MainHead
-		title="Vidhya Divakar — Technical Documentation Professional"
+		title="Vidhya Divakar — Technical Writer & Full Stack Developer"
 		description="Detail-oriented Technical Writer with 8+ years of experience delivering clear, precise documentation across AI, SaaS, FinTech, Healthcare, and more."
 	/>
 </head>
@@ -27,7 +27,11 @@ const experience = (await getCollection('writing'))
 
 			<div class="identity">
 				<h1 class="name"><a href="/">Vidhya Divakar</a></h1>
-				<h2 class="role">Senior Technical Documentation Professional</h2>
+				<h2 class="role">Technical Writer & Full Stack Developer</h2>
+				<p class="taglines">
+					<span>From API references to GenAI workflows — documented.</span>
+					<span>From databases to deployments — built.</span>
+				</p>
 			</div>
 
 			<nav class="section-nav" aria-label="On-page sections">
@@ -53,7 +57,7 @@ const experience = (await getCollection('writing'))
 
 			<div class="currently">
 				<span class="pulse" aria-hidden="true"></span>
-				<span>Currently upskilling in <strong>MERN Stack</strong></span>
+				<span>Currently building with <strong>MERN Stack</strong></span>
 			</div>
 
 			<div class="socials">
@@ -329,6 +333,19 @@ const experience = (await getCollection('writing'))
 		margin-top: 0.5rem;
 		line-height: 1.5;
 		letter-spacing: 0.02em;
+	}
+
+	.taglines {
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.taglines span {
+		font-size: 0.82rem;
+		color: var(--muted);
+		line-height: 1.6;
 	}
 
 	.tagline {
