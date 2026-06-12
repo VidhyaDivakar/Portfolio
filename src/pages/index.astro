@@ -100,7 +100,8 @@ const experience = (await getCollection('writing'))
 
 			<div class="proj-tabs">
 				<button class="proj-tab active" data-tab="featured">Featured Work</button>
-				<button class="proj-tab" data-tab="dev">Dev Experiments</button>
+				<button class="proj-tab" data-tab="fullstack">Full Stack Projects</button>
+				<button class="proj-tab" data-tab="blogs">Blogs</button>
 			</div>
 
 			<!-- FEATURED WORK -->
@@ -177,24 +178,11 @@ const experience = (await getCollection('writing'))
 						</div>
 					</a>
 
-					<a href="/articles/" class="project-card">
-						<div class="project-inner">
-							<div class="project-header">
-								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M2 7h8M2 10h10M2 13h6"/></svg>
-								<h4>Articles</h4>
-							</div>
-							<p class="project-desc">Articles on technical writing, AI, APIs, and software development.</p>
-							<div class="project-tags">
-								<span class="tag">Technical Writing</span><span class="tag">AI</span><span class="tag">API</span><span class="tag">Published</span>
-							</div>
-						</div>
-					</a>
-
 				</div>
 			</div>
 
-			<!-- DEV EXPERIMENTS -->
-			<div class="proj-panel hidden" data-panel="dev">
+			<!-- FULL STACK PROJECTS -->
+			<div class="proj-panel hidden" data-panel="fullstack">
 				<div class="projects-list">
 					{projects.map((project) => (
 						<a href={`/work/${project.id}`} class="project-card">
@@ -211,7 +199,25 @@ const experience = (await getCollection('writing'))
 						</a>
 					))}
 				</div>
-				<a href="/work/" class="view-all">View all dev projects <span aria-hidden="true">↗</span></a>
+				<a href="/work/" class="view-all">View all projects <span aria-hidden="true">↗</span></a>
+			</div>
+
+			<!-- BLOGS -->
+			<div class="proj-panel hidden" data-panel="blogs">
+				<div class="projects-list">
+					<a href="/articles/" class="project-card">
+						<div class="project-inner">
+							<div class="project-header">
+								<svg class="project-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M2 7h8M2 10h10M2 13h6"/></svg>
+								<h4>All Articles</h4>
+							</div>
+							<p class="project-desc">Articles on technical writing, AI, APIs, and software development — published across platforms.</p>
+							<div class="project-tags">
+								<span class="tag">Technical Writing</span><span class="tag">AI</span><span class="tag">API</span><span class="tag">Published</span>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
 
 		</section>
