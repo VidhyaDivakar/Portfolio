@@ -1,8 +1,123 @@
 ---
-import Hero from '../components/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import MainHead from '../components/MainHead.astro';
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
-</BaseLayout>
+<html lang="en">
+<head>
+	<MainHead
+		title="Page Not Found | Vidhya Divakar"
+		description="This page does not exist."
+	/>
+</head>
+<body>
+
+<div class="page">
+	<header class="top-nav">
+		<a href="/" class="back-link">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+			Back to Home
+		</a>
+	</header>
+
+	<main class="content">
+		<div class="not-found">
+			<span class="code">404</span>
+			<h1>Page Not Found</h1>
+			<p>This page doesn't exist or has been moved.</p>
+			<a href="/" class="home-link">Go to Home</a>
+		</div>
+	</main>
+</div>
+
+<style>
+	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+	:root {
+		--bg: #0c0c0c;
+		--surface: #0f1117;
+		--accent: #d4b896;
+		--text: #e8e6e1;
+		--muted: #8a8a8a;
+		--border: rgba(255,255,255,0.06);
+	}
+
+	body {
+		background: var(--bg);
+		color: var(--text);
+		font-family: 'Inter', system-ui, sans-serif;
+		min-height: 100vh;
+	}
+
+	.page {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.top-nav {
+		padding: 2rem 0 4rem;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: var(--muted);
+		text-decoration: none;
+		font-size: 0.875rem;
+		transition: color 0.2s;
+	}
+
+	.back-link:hover { color: var(--accent); }
+
+	.content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4rem 0;
+	}
+
+	.not-found {
+		text-align: center;
+	}
+
+	.code {
+		display: block;
+		font-size: 6rem;
+		font-weight: 700;
+		color: var(--accent);
+		opacity: 0.3;
+		line-height: 1;
+		margin-bottom: 1rem;
+	}
+
+	h1 {
+		font-size: 1.75rem;
+		font-weight: 600;
+		margin-bottom: 0.75rem;
+		color: var(--text);
+	}
+
+	p {
+		color: var(--muted);
+		margin-bottom: 2rem;
+	}
+
+	.home-link {
+		display: inline-block;
+		padding: 0.6rem 1.5rem;
+		border: 1px solid var(--accent);
+		color: var(--accent);
+		text-decoration: none;
+		border-radius: 4px;
+		font-size: 0.875rem;
+		transition: background 0.2s;
+	}
+
+	.home-link:hover {
+		background: rgba(212, 184, 150, 0.08);
+	}
+</style>
+
+</body>
+</html>
