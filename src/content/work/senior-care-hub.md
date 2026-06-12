@@ -1,5 +1,5 @@
 ---
-title: Senior Care Hub
+title: Senior Care Hub - Senior NexCore
 publishDate: 2026-02-01 00:00:00
 img: /assets/stock-1.jpg
 img_alt: Abstract workspace image used as a placeholder project thumbnail
@@ -22,4 +22,4 @@ Built a full-stack MERN application with TypeScript, implementing modular archit
 - Structured the frontend as a scalable SPA using React Router v7 with nested routing and reusable layout patterns
 - Implemented JWT authentication for secure session handling
 
-[View on GitHub](https://github.com/)
+[View on GitHub](https://github.com/VidhyaDivakar/senior-care-hub)
